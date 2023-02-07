@@ -1,17 +1,15 @@
 pipeline {
-   agent any
+    agent any
 
-   stages {
-       stage('Dependencies') {
-           steps {
-               sh 'npm install'
-           }
-       }
-       stage('e2e Tests') {
-           steps {
-               sh 'npm run cypress'
-           }
-       }
-       
-   }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Build.'
+                sh 'docker rm cypress-test --force'
+                sh 'docker build --build-arg  -t cypress-test .'
+                sh 'docker run --name cypress-test -d -p 80:80 cypress-test'
+
+            }
+        }
+    }
 }
