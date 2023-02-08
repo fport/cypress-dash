@@ -34,7 +34,7 @@ describe("Bulletin", () => {
     cy.get('[data-comp-name="slip-shortCode-button"]').click();
 
     // should get data-comp-name="shortCode-qrCode" element
-    cy.get('[data-comp-name="shortCode-qrCode"]').should("exist");
+    cy.get('[data-comp-name="shortCode-qrCode"]').should("exist")
 
     cy.get('[data-comp-name="shortCode-button"]').click();
   });
