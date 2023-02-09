@@ -1,27 +1,12 @@
-name: Cypress Test
-
+name: End-to-end tests
 on: [push]
-
-env:
-  CYPRESS_baseUrl: https://www.iddaa.com
-
 jobs:
-  cypress_run:
-    runs-on: ubuntu-latest
-
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16
-
-    - name: Install dependencies
-      run: |
-        npm ci
-
-    - name: Run tests with Cypress
-      run: |
-        $(npm bin)/cypress run
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
