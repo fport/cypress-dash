@@ -2,3 +2,9 @@ node_modules
 data
 fu
 .idea
+
+# Logs
+cypress/videos
+cypress/screenshots
+.nyc_output
+coverage
