@@ -97,4 +97,12 @@ describe("Homepage-tests-web", () => {
         // its a custom command in cypress/support/commands.js
         cy.login("05538414788", "123456789");
     });*/
+
+    it.only("login", () => {
+        cy.fixture("users").as("user");
+
+        cy.get("@user").then((user) => {
+            cy.login(user.phoneNumber, user.password);
+        });
+    });
 });
