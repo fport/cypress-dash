@@ -54,7 +54,7 @@ describe("Homepage-tests-web", () => {
         cy.get('[data-comp-name="mainMenu-live-button"]').should(
             "have.attr",
             "href",
-            "/program/canli/futbol"
+            "/program/canli"
         );
     });
 
@@ -78,27 +78,17 @@ describe("Homepage-tests-web", () => {
         cy.get('[data-comp-name="shortProgram-button"] > a').should(
             "have.attr",
             "href",
-            "/program/canli/futbol"
+            "/program/canli"
         );
     });
 
     it("should have 'tümünü göster button' text on iddaa home page click and go to live match page", () => {
         const button = cy.get('[data-comp-name="shortProgram-button"]');
         button.click();
-        cy.url().should("include", "/program/canli/futbol");
+        cy.url().should("include", "/program/canli");
     });
 
-    /*it("should reload is curretly page", () => {
-          cy.reload();
-          cy.url().should("include", "/program/canli/futbol");
-      });*/
-
-    /*it("login", () => {
-        // its a custom command in cypress/support/commands.js
-        cy.login("05538414788", "123456789");
-    });*/
-
-    it.only("login", () => {
+    it("login", () => {
         cy.fixture("users").as("user");
 
         cy.get("@user").then((user) => {

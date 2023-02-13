@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress": "npx cypress run"
+    "cypress": "npx cypress run",
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run",
+    "report:merge": "mochawesome-merge > index.json",
+    "report:mocha": "marge index.json",
+    "report:clean": "rimraf mochawesome-report index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.5.1"
+    "cypress": "^12.5.1",
+    "cypress-mochawesome-reporter": "^3.2.3"
   },
   "dependencies": {
     "cy2": "^4.0.6"
